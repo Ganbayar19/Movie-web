@@ -1,44 +1,64 @@
+const data = [
+  {
+    image: "",
+    name: "Michael Chen",
+    occupation: " Senior Real Estate AgentSenior Real Estate Agent",
+    numberOfPropertiesSold: "24 Properties Sold",
+  },
+  {
+    image: "",
+    name: "Michael Chen",
+    occupation: " Senior Real Estate AgentSenior Real Estate Agent",
+    numberOfPropertiesSold: "24 Properties Sold",
+  },
+  {
+    image: "",
+    name: "Michael Chen",
+    occupation: " Senior Real Estate AgentSenior Real Estate Agent",
+    numberOfPropertiesSold: "24 Properties Sold",
+  },
+  {
+    image: "",
+    name: "Michael Chen",
+    occupation: " Senior Real Estate AgentSenior Real Estate Agent",
+    numberOfPropertiesSold: "24 Properties Sold",
+  },
+];
+
 const HomePage = () => {
   return (
-    <div className=" min-h-screen flex flex-col item-center h-screen py-10 px-4 ">
-      <div className="text-center mb-10">
-        <h1 className="font-semibold text-lg text-black">Smart Tools</h1>
-        <h2 className="font-semibold text-lg text-black">
-          Real Experts, Easy Moves
-        </h2>
-        <p>Your journey to finding the perfect home starts here</p>
-      </div>
-      <div className="flex direction-column gap-3  rounded-xl p-6 max-w-5xl w-full">
-        <div className=" bg-[#FFFFFF] shadow-md border-gray-500 ">
-          <div className="text-3x1 mb-3"></div>
-          <h2 className="font-semibold text-lg text-black">Top-end Curation</h2>
-          <p className="text-[#4A5565] text-sum">
-            Carefully selected properties that meet our high standards of
-            quality
-          </p>
-        </div>
-      </div>
-      <div className="flex direction-column gap-3  rounded-xl p-6 max-w-5xl w-full">
-        <div className=" bg-[#FFFFFF] shadow-md border-green-500">
-          <div className="text-3x1 mb-3"></div>
-          <h2 className="font-semibold text-lg text-black">Top-end Curation</h2>
-          <p className="text-[#4A5565] text-sum">
-            Carefully selected properties that meet our high standards of
-            quality
-          </p>
-        </div>
-      </div>
-      <div className="flex direction-column gap-3  rounded-xl p-6 max-w-5xl w-full">
-        <div className=" bg-[#FFFFFF] shadow-md border-gray-500 ">
-          <div className="text-3x1 mb-3"></div>
-          <h2 className="font-semibold text-lg text-black">Top-end Curation</h2>
-          <p className="text-[#4A5565] text-sum">
-            Carefully selected properties that meet our high standards of
-            quality
-          </p>
-        </div>
+    <div className="bg-[#FFFFFF] py-10 px-20 w-full flex flex-col gap-10 items-center ">
+      <div className="flex flex-col gap-4 items-center">
+        <h1 className="font-medium text-xl text-black text-center">
+          Meet the People <br />
+          Behind the Process
+        </h1>
+        <p className="text-[#4A5565]">
+          Our experienced team is dedicated to helping you find your perfect
+          home
+        </p>
       </div>
     </div>
   );
 };
-export default HomePage;
+
+{
+  data.map((item, index) => {
+    return (
+      <div
+        key={index}
+        className="flex-1 bg-white rounded-2x1 border overflow-hidden"
+      >
+        <img className="object-cover w-full aspect-square" src="" />
+
+        <div className="p-6 flex flex-col gap-1 items-center">
+          <p className="text-black">{item.name}</p>
+          <p className="text-sm text-[#4A5565]">{item.occupation}</p>
+          <p className="text-sm text-[#FF6900]">
+            {item.numberOfPropertiesSold}
+          </p>
+        </div>
+      </div>
+    );
+  });
+}
