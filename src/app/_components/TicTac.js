@@ -1,3 +1,5 @@
+"use client"
+import React from "react";
 import { Button } from ("@/components/ui/button");
 
 const calculatWinner = (square) => {
@@ -22,3 +24,13 @@ const Square = ({value, onClick, Highlight})=>(
 const Board = ({squares, onClic, winningLine}) => (
     <div className="grid gap-2"></div>
 )
+
+export const TicTac = () => {
+    <div className="w-screen h-screen flex justify-center items-center bg-gray-200">
+       <div className="p-6 rounded-md shadow-sm bg-white border">
+        <div className="grid grid-cols-3 border border-black">
+            <div className=""></div>
+        </div>
+       </div>
+    </div>
+}

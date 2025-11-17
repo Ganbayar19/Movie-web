@@ -1,7 +1,11 @@
-import { TicTac } from "./_components/TicTac";
+import { Movie, TopBar } from "./_components/Movie";
+import { Footer } from "./_components/Movie";
 
-const HomePage = () => {
-  return <TicTac />;
-};
-
-export default HomePage;
+export default function Page() {
+  return (
+    <>
+      <TopBar />
+      <Footer />
+    </>
+  );
+}
