@@ -4,7 +4,7 @@ type MovieCardProps = {
   id: number;
   img: string;
   name: string;
-  rate: number;
+  rate: string;
 };
 
 export const MovieCard = (props: MovieCardProps) => {
