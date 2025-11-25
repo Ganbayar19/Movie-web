@@ -1,17 +1,21 @@
-import { propagateServerField } from "next/dist/server/lib/render-server";
+import {Star} from "lucide-react"
+import Link from "next/link";
 
 type MovieCardProps = {
   id: number;
-  img: string;
-  name: string | undefined;
-  rate: string;
+  backdrop_path: string;
+  title: string | undefined;
+  vote_avareg: string;
+  className?: string;
 };
 
-export const MovieCard = (props: MovieCardProps) => {
-  return (
-    <div className="w-230px px-6 rounded-4xl border">
-      <img src={props.img} />
-      <div>{props.name}</div>
-    </div>
-  );
-};
+export const MovieCard = ({
+  id,
+  backdrop_path,
+  title,
+  vote_avareg,
+}:MovieCardProps) => {
+  return(
+    <Link rel="preload"></Link>
+  )
+}
