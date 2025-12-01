@@ -1,60 +1,56 @@
 "use client";
 
-import { Link } from "lucide-react";
 import { useEffect, useState } from "react";
 import { MovieCard } from "./MovieCard";
-import {MovieDetail} from "./MovieDetail"
+type Movie = {
+  id: number;
+  name: string;
+};
+import Link from "next/link";
 
 type MovieSectionProps = {
-  categoryName: string;
-  title: string;
-  showButton: boolean;
+  category: string;
 };
 
-export const MovieSection = (props: MovieSectionProps) => {
-  const [movies, setMovies] = useState<MovieDetail[]>([]);
-  const { categoryName, title, showButton } = props;
+export const MovieSection = ({ category }: MovieSectionProps) => {
+  const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
-    const fechData = async () => {
-      const rec = await fetch(
-        `${process.env.TMDB_BASE_URL}/movie/${categoryName}?language=en-US&page=1`,
+    const fechMovies = async () => {
+      const res = await fetch(
+        ` https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`,
         {
           headers: {
-            "Content-type": "application.json",
-            Authorization: `Bearer ${process.env.TMDB_API_TOKEN}`,
+            Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+            accept: "application/json",
           },
         }
       );
-      const data = await rec.json();
+      const data = await res.json();
 
-      setMovies(data.results);
+      setMovies(data.results.slice(0, 10));
     };
-    fechData();
-  }, []);
+
+    fetchMovies();
+  }, [category]);
 
   return (
-    <div>
-      <div className="flex justify-between">
-        <p className="text-6xl font-semibold">{title}</p>
-        {showButton && (
-          <Link href={`/categoy/${categoryName}`}>
-            <p>see more</p>
-          </Link>
-        )}
-        <div>
-          <div className="grid grid-cols-5 gap-10 ">
-            {movies?.slice(0, 10)?.map((el) => (
-              <MovieCard
-                key={el.id}
-                id={el.id}
-                backdrop_path={el.backdrop_path}
-                title={el.title}
-                vote_avareg={el.vote_avareg}
-              />
-            ))}
-          </div>
-        </div>
+    <div className="w-full gap-8 flex flex-col">
+      <div className="w-full flex justify-between items-center">
+        <h2 className="text-2xl font-bold capitalize">
+          {category.replace("_", " ")}
+        </h2>
+        <Link
+          href={`/category/${category}`}
+          className="text-blue-500 hover:underline"
+        >
+          See ALL
+        </Link>
+      </div>
+      <div className="grid grid-cols-5 gap-8">
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
       </div>
     </div>
   );

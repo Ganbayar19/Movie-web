@@ -1,30 +1,24 @@
-"use client";
+import { Button } from "@/src/components/ui/button";
+import { Geners } from "./Genres";
+import { Moon } from "lucide-react";
+import { MovieSerch } from "./MovieSerch";
 
-import { useEffect, useState } from "react";
-
-type HeaderProps = {
-  id: number;
-  image: string;
-  title: string;
-  rate: string;
-  desc: string;
-};
-
-// export default function HeaderBanner() {
-//   const [index, setIndex] = useState(0);
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setIndex((prev) => (prev + 1) % banner.lenght);
-//     }, 3000);
-//     return () => clearInterval(interval);
-//   }, []);
-// }
-
-export const Header = (props: HeaderProps) => {
+export const Header = () => {
   return (
-    <div>
-      <img src={props.image} />
-      <div>{props.title}</div>
+    <div className="w-screen bg-white">
+      <div className="container mx-auto flex items-center h-15">
+        <div className="w-50">Movie Z</div>
+
+        <div className="flex-1 flex justify-center items-center gap-4">
+          <Geners />
+          <MovieSerch />
+        </div>
+        <div className="w-50 flex justify-end">
+          <Button size="icon-lg">
+            <Moon />
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
