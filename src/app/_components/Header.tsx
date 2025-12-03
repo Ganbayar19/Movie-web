@@ -1,7 +1,7 @@
 import { Button } from "@/src/components/ui/button";
 import { Geners } from "./Genres";
 import { Moon } from "lucide-react";
-import { MovieSerch } from "./MovieSerch";
+import { MovieSerch } from "./MovieSearch";
 
 export const Header = () => {
   return (

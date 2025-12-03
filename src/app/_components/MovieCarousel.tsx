@@ -1,10 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-type Movie = {
-  id: number;
-  name: string;
-};
+import { Movie } from "@/src/components/types";
 import {
   Carousel,
   CarouselContent,

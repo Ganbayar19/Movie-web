@@ -1,10 +1,7 @@
 import { Input } from "@/src/components/ui/input";
 import { Popover, PopoverTrigger } from "@radix-ui/react-popover";
 import { ChangeEvent, useEffect, useState } from "react";
-type Movie = {
-  id: number;
-  name: string;
-};
+import { Movie } from "@/src/components/types";
 
 export const MovieSerch = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -52,7 +49,7 @@ export const MovieSerch = () => {
             <p className="p-4 text-center">No results found. </p>
           )}
 
-          {!loading && movies.map((movie) => <MovieSerchCard key={movie.id} movie={movie} />)}
+          {!loading && movies.map((movie) => <MovieSearchCard key={movie.id} movie={movie} />)}
         </div>
       </PopoverTrigger>
     </Popover>

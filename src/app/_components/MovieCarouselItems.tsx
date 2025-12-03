@@ -1,9 +1,6 @@
 "use client";
 import { CarouselItem } from "@/src/components/ui/carousel";
-type Movie = {
-  id: number;
-  name: string;
-};
+import { Movie } from "@/src/components/types";
 import { Image } from "lucide-react";
 
 type MovieCarouselItemProps = {
