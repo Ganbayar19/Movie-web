@@ -3,9 +3,6 @@ import { CarouselItem } from "@/src/components/ui/carousel";
 import { Movie } from "@/src/components/types";
 import { Image } from "lucide-react";
 
-type MovieCarouselItemProps = {
-  movie: Movie;
-};
 
 export const MovieCarouselItem = ({ movie }: MovieCarouselItemProps) => {
   const { backdrop_path, title } = movie;

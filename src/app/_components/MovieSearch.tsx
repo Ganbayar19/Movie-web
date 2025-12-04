@@ -1,5 +1,5 @@
 import { Input } from "@/src/components/ui/input";
-import { Popover, PopoverTrigger } from "@radix-ui/react-popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@radix-ui/react-popover";
 import { ChangeEvent, useEffect, useState } from "react";
 import { Movie } from "@/src/components/types";
 
@@ -36,7 +36,7 @@ export const MovieSerch = () => {
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger>
+      <PopoverContent>
         <Input
           value={query}
           onChange={handleChange}
@@ -51,7 +51,7 @@ export const MovieSerch = () => {
 
           {!loading && movies.map((movie) => <MovieSearchCard key={movie.id} movie={movie} />)}
         </div>
-      </PopoverTrigger>
+      </PopoverContent>
     </Popover>
   );
 };

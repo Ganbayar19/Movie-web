@@ -1,16 +1,13 @@
-import { Image, Link } from "lucide-react"
+import { Movie } from "@/src/components/types";
+import { Image, Link, Link2 } from "lucide-react";
+import { useState } from "react";
 
-export const MovieCard = ({movie}: MovieCardProps) => {
-    return(
-        <Link
-        href={`/movie/${movie.id}`}
-        className="bg-white rounded-xl overflow-hidden shadow-xl hover:scale-150 hover:shadow-2xl duration-200 block"
-        >
-            <div className="relative w-full h-[270px]">
-                <Image>
-                   
-                </Image>
-            </div>
-        </Link>
-    )
-}
+export const MovieCard = ({ movie }: MovieCardProps) => {
+  const [movies, setMovies] = useState<Movie[]>([]);
+  return (
+    <Link>
+    <div key={id} className="rounded-lg overflow-hidden">
+    </div>
+    </Link>
+  );
+};

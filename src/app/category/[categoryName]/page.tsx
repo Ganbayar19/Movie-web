@@ -1,4 +1,6 @@
 import { Button } from "@/src/components/ui/button";
+import { Movie } from "@/src/components/types";
+import { MovieCard } from "../../_components/MovieCard";
 import {
   Pagination,
   PaginationContent,
@@ -20,15 +22,12 @@ const categoryPage = () => {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const res = await fetch(
-        ` https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`,
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
-            accept: "application/json",
-          },
-        }
-      );
+      const res = await fetch(`  /movie/upcoming?language=en-US&page=1`, {
+        headers: {
+          Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+          accept: "application/json",
+        },
+      });
       const data = (await res.json()) as Response;
 
       setMovies(data.results);
@@ -38,12 +37,12 @@ const categoryPage = () => {
   }, [categoryName, currentPage]);
 
   const nextPage = () => {
-    setCurrentPage((prev) => prev + 1)
-  }
+    setCurrentPage((prev) => prev + 1);
+  };
 
-    const prevPage = () => {
-      setCurrentPage((prev) => prev - 1);
-    };
+  const prevPage = () => {
+    setCurrentPage((prev) => prev - 1);
+  };
 
   return (
     <div className="container mx-auto py-12 space-y-8">
