@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { MovieCard } from "./MovieCard";
 import { Movie } from "@/src/components/types";
 import Link from "next/link";
-
 export const MovieSection = ({ category }: MovieSectionProps) => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
